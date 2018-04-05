@@ -1,0 +1,102 @@
+/*!
+ * Start Bootstrap - SB Admin 2 v3.3.7+1 (http://startbootstrap.com/template-overviews/sb-admin-2)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+#wrapper {
+    background-color: #f8f8f8;
+    width: 100%;
+}
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: white;
+}
+@media (min-width: 768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
+
+.navbar-top-links {
+    margin-right: 0;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.sidebar .fa.arrow:before {
+  content: "\f104";
+}
+.sidebar .active > a > .fa.arrow:before {
+  content: "\f107";
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+}
+
+.bg-menu,
+.sidebaritem,
+.sidebar ul li {
+  background-color:#f8f8f8 !important;
+}
+
+
+.nav > li:hover > a,
+.nav > li:focus > a,
+.nav > li > a:focus,
+.nav > li > a:hover,
+.nav > li > a:active{
+  background-color:#eee !important;
+  color: #23527c !important;
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 37px !important;
+}
+
+.sidebar .arrow {
+  float: right;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 50px;
+    }
+}
+
+.page-head-input {
+    margin-top:20px;
+}
+a {
+    cursor:pointer;
+}
+
+  .menuText:active,
+  .menuText:hover,
+  .menuText:focus,{
+      color: #fff;
+  }
+
+  .logoutText,
+  .navbar-brand,
+  .menuText{
+    color: #337ab7;
+  }
+
+  #organizationBrand{
+    color: #777;
+  }

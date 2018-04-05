@@ -1,0 +1,62 @@
+<head>
+    <link href="/consumer/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="static/css/bootstrap/3.3.7/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/datatables/1.10.16/dataTables.min.css" rel="stylesheet">
+    <link href="static/css/datatables/1.10.16/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="static/css/angular-datatables/angular-datatables.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-datepicker/1.7.1/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="static/css/morris/0.5.1/morris.css" rel="stylesheet">
+    <link href="static/css/metismenu/2.7.0/metisMenu.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <title>Raspberry Pi</title>
+</head>
+<body>
+    <div id="wrapper" ng-app="ts">
+        <nav class="navbar navbar-default navbar-static-top bg-menu" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="organizationBrand" class="navbar-brand">Information Management</a>
+            </div>
+            <div class="alert alert-info col-sm-4 text-center col-sm-offset-3" id="loadNotification" style="display:none;">
+                <strong><i class="fa fa-spinner fa-spin"></i></strong> Loading
+            </div>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse" ng-controller="LeftMenuController" left-menu></div>
+            </div>
+        </nav>
+        <div id="page-wrapper" ng-view>
+            Page did not load, please retry.
+        </div>
+    </div>
+
+    <script src="static/js/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="static/js/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="static/js/libs/angularjs/1.6.5/angular-route.js"></script>
+    <script src="static/js/libs/bootstrap/3.3.7/bootstrap.min.js"></script>
+    <script src="static/js/libs/bootstrap-datepicker/1.7.1/bootstrap-datepicker.min.js"></script>
+    <script src="static/js/libs/raphael/2.1.0/raphael.min.js"></script>
+    <script src="static/js/libs/morris/0.5.1/morris.min.js"></script>
+    <script src="static/js/libs/metismenu/2.7.0/metisMenu.min.js"></script>
+    <script src='static/js/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js'></script>
+    <script src="static/js/libs/datatables/1.10.16/dataTables.min.js"></script>
+    <script src="static/js/libs/datatables/1.10.16/dataTables.buttons.min.js"></script>
+    <script src="static/js/libs/datatables/1.10.16/buttons.print.min.js"></script>
+    <script src="static/js/libs/datatables/1.10.16/dataTables.select.min.js"></script>
+    <script src="static/js/libs/angular-datatables/angular-datatables.min.js"></script>
+    <script src="static/js/libs/angular-datatables/angular-datatables.buttons.min.js"></script>
+    <script src="static/js/libs/chartjs/Chart.js"></script>
+    <script src="static/js/libs/angular-chart-js/angular-chart.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/TS.js"></script>
+
+    <script src="static/js/app/controllers/LeftMenuController.js"></script>
+    <script src="static/js/app/controllers/FirstPageController.js"></script>
+    <script src="static/js/app/controllers/SecondPageController.js"></script>
+    <script src="static/js/app/controllers/ThirdPageController.js"></script>
+</body>
