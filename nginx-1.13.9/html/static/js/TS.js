@@ -1,6 +1,6 @@
 var app = angular.module("ts", ["ngRoute", 'ui.utils','datatables','datatables.buttons', 'chart.js'])
             .run(function($location) {
-				$location.path('/data/');
+				$location.path('/visualtype/');
                 bootstrap.init();
             });
 

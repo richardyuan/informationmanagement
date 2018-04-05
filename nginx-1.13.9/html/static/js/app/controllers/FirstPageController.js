@@ -1,6 +1,6 @@
 app.config(function($routeProvider) {
     $routeProvider
-        .when("/data/", {
+        .when("/visualtype/", {
             templateUrl : "tpl/firstPage.html",
             controller : "FirstPageController",
             resolve: {
