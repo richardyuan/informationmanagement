@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class BarChartDataController {
-    public static final String URL = "/barchart";
+public class LikesController {
+    public static final String URL = "/likes";
     public static final String twitterQuery = "SELECT SUM(Likes) as twitterLikes, Visualtype FROM twitter\n" +
             "WHERE brand = ? \n" +
             "GROUP BY Visualtype";

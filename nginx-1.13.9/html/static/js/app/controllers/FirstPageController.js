@@ -21,13 +21,10 @@ app.controller('FirstPageController', function($scope, $http, $route, $routePara
     $('#loadNotification').hide();
     $scope.organizations = data.organizations;
     $scope.updatedOrganization = function () {
-       
-
         var params = {
             "organization": $scope.selectedOrganization
         }
-
-        $http({ method: 'GET', url: "http://localhost:8080/barchart", params: params })
+        $http({ method: 'GET', url: "http://localhost:8080/likes", params: params })
             .then(function (response) {
 
                 var imageTwitter = (response.data.imageTwitter == null) ? 0 : response.data.imageTwitter;
@@ -37,12 +34,25 @@ app.controller('FirstPageController', function($scope, $http, $route, $routePara
                 var carouselInstagram = (response.data.carouselInstagram == null) ? 0 : response.data.carouselInstagram;
                 var videoInstagram = (response.data.videoInstagram == null) ? 0 : response.data.videoInstagram;
 
-                $scope.barData = [[imageTwitter, carouselTwitter, videoTwitter],
-                [imageInstagram, carouselInstagram, videoInstagram]];
+                $scope.barDataInstagram = [imageInstagram, carouselInstagram, videoInstagram];
+                $scope.barDataTwitter = [imageTwitter, carouselTwitter, videoTwitter];
                 $scope.labels = ["image","carousel","video"];
-                $scope.series = ["Twitter", "Instagram"];
-                console.log($scope.selectedOrganization);
-                console.log($scope.barData);
+            });
+
+
+        $http({ method: 'GET', url: "http://localhost:8080/comments", params: params })
+            .then(function (response) {
+
+                var imageTwitter = (response.data.imageTwitter == null) ? 0 : response.data.imageTwitter;
+                var carouselTwitter = (response.data.carouselTwitter == null) ? 0 : response.data.carouselTwitter;
+                var videoTwitter = (response.data.videoTwitter == null) ? 0 : response.data.videoTwitter;
+                var imageInstagram = (response.data.imageInstagram == null) ? 0 : response.data.imageInstagram;
+                var carouselInstagram = (response.data.carouselInstagram == null) ? 0 : response.data.carouselInstagram;
+                var videoInstagram = (response.data.videoInstagram == null) ? 0 : response.data.videoInstagram;
+
+                $scope.commentDataInstagram = [imageInstagram, carouselInstagram, videoInstagram];
+                $scope.commentDataTwitter = [imageTwitter, carouselTwitter, videoTwitter];
+                $scope.labels = ["image", "carousel", "video"];
             });
 
 

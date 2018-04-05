@@ -1,23 +1,63 @@
 <div class="row ">
     <div class="col-lg-12">
-        <h1 style="float:left">Instagram & Twitter post advies</h1>
+        <h1 style="float:left">Instagram & Twitter informatie</h1>
     </div>
 </div>
 
-
-
-<div class="row" style="margin-top: 50px">
+<div class="row">
     <div class="col-md-12">
+        <h4>Selecteer een organisatie:</h4>
         <select ng-model="selectedOrganization" ng-change="updatedOrganization()">
             <option ng-repeat="x in organizations">{{x}}</option>
         </select>
     </div>
-    <div class="col-md-6" ng-if="barData != null">
-        <canvas id="bar" class="chart chart-bar"
-                chart-data="barData" chart-labels="labels">
-            chart-series="series"
-        </canvas>
+    <div class="col-md-6" ng-if="barDataInstagram != null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Instagram likes
+            </div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="barDataInstagram" chart-labels="labels"></canvas>
+            </div>
+        </div>
     </div>
-    
 
+    <div class="col-md-6" ng-if="barDataTwitter != null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Twitter likes
+            </div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="barDataTwitter" chart-labels="labels"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6" ng-if="commentDataInstagram != null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Instagram comments
+            </div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="commentDataInstagram" chart-labels="labels"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" ng-if="commentDataTwitter != null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Twitter comments
+            </div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="commentDataTwitter" chart-labels="labels"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
