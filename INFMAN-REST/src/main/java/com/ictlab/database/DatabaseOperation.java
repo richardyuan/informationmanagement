@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -14,10 +17,10 @@ import org.apache.commons.lang3.StringUtils;
 public class DatabaseOperation {
 
     protected static final String SERVER_NAME = "127.0.0.1";
-    protected static final int PORT = 3306;
+    protected static final int PORT = 13306;
 
-    protected static final String USERNAME = "root";
-    protected static final String PASSWORD = "W@terl00";
+    protected static final String USERNAME = "infman";
+    protected static final String PASSWORD = "infman123";
     protected static final String ID = "id";
 
     public static List<Map<String, Object>> executeQuery(String query, String type){
@@ -26,19 +29,34 @@ public class DatabaseOperation {
 
     public static List<Map<String, Object>> executeQuery(String query, String type, String[] params){
 
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser(USERNAME);
-        dataSource.setPassword(PASSWORD);
-        dataSource.setServerName(SERVER_NAME);
-        dataSource.setPortNumber(PORT);
-        dataSource.setDatabaseName("infman");
+
+        String user = "ubuntu-0915598";
+        String password = "F492dx";
+        String host = "145.24.222.157";
+        int port = 22;
 
         Connection connection;
+        Session session;
         try {
+
+            JSch jsch = new JSch();
+            session = jsch.getSession(user, host, port);
+            session.setPassword(password);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+            session.setPortForwardingL(PORT, SERVER_NAME, 3306);
+
+            MysqlDataSource dataSource = new MysqlDataSource();
+            dataSource.setUser(USERNAME);
+            dataSource.setPassword(PASSWORD);
+            dataSource.setServerName(SERVER_NAME);
+            dataSource.setPortNumber(PORT);
+            dataSource.setDatabaseName("infman");
+
             connection = dataSource.getConnection();
         } catch (Exception ex) {
-            connection = null;
             ex.printStackTrace();
+            return null;
         }
 
         try {
@@ -82,6 +100,7 @@ public class DatabaseOperation {
             if (connection != null) {
                 try {
                     connection.close();
+                    session.disconnect();
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }

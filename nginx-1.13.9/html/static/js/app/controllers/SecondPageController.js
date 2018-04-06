@@ -68,7 +68,7 @@ app.controller('SecondPageController', function($scope, $http, $route, $routePar
 
     $scope.updatedMonth = function () {
         $scope.getMonth($scope.selectedMonth);
- 
+        $('#loadNotification').show();
         var params = {
             "month": $scope.monthNumber
         }
@@ -109,6 +109,7 @@ app.controller('SecondPageController', function($scope, $http, $route, $routePar
                     $scope.instagramLikesLabels.push(Object.keys(instagramLikesArray[i])[0]);
                     $scope.instagramLikesData.push(Object.values(instagramLikesArray[i])[0]);
                 }
+                $('#loadNotification').hide();
             });
     }
 });
