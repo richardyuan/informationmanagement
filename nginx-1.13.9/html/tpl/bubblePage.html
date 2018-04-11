@@ -1,0 +1,18 @@
+<div class="row ">
+    <div class="col-lg-12">
+        <h1 style="float:left">Total likes on Twitter and Instagram</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" ng-if="barDataTwitter != null">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <canvas id="base" class="chart chart-bubble"
+                        chart-data="barDataTwitter" chart-options="options" chart-series="series"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
