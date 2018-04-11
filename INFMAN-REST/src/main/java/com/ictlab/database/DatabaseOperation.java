@@ -17,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 public class DatabaseOperation {
 
     protected static final String SERVER_NAME = "127.0.0.1";
-    protected static final int PORT = 13306;
+    protected static final int PORT = 3306;
 
     protected static final String USERNAME = "infman";
     protected static final String PASSWORD = "infman123";
@@ -39,17 +39,17 @@ public class DatabaseOperation {
         Session session;
         try {
 
-            JSch jsch = new JSch();
-            session = jsch.getSession(user, host, port);
-            session.setPassword(password);
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.connect();
-            session.setPortForwardingL(PORT, SERVER_NAME, 3306);
+//            JSch jsch = new JSch();
+//            session = jsch.getSession(user, host, port);
+//            session.setPassword(password);
+//            session.setConfig("StrictHostKeyChecking", "no");
+//            session.connect();
+//            session.setPortForwardingL(PORT, SERVER_NAME, 3306);
 
             MysqlDataSource dataSource = new MysqlDataSource();
             dataSource.setUser(USERNAME);
             dataSource.setPassword(PASSWORD);
-            dataSource.setServerName(SERVER_NAME);
+            dataSource.setServerName(host);
             dataSource.setPortNumber(PORT);
             dataSource.setDatabaseName("infman");
 
@@ -100,7 +100,7 @@ public class DatabaseOperation {
             if (connection != null) {
                 try {
                     connection.close();
-                    session.disconnect();
+                    //session.disconnect();
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
